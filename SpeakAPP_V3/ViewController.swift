@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -58,9 +59,9 @@ class ViewController: UIViewController {
         pitchMultiplierLabel.text = "語調"
         volumeLabel.text = "音量"
         
-        speedLabelValue.text = "\(speedSliderValue.value)"
-        pitchMultiplierLabelValue.text = "\(pitchMultiplierSliderValue.value)"
-        volumeLabelValue.text = "\(volumeSliderValue.value)"
+        speedLabelValue.text = String(format: "%.2f", speedSliderValue.value)
+        pitchMultiplierLabelValue.text = String(format: "%.2f", pitchMultiplierSliderValue.value)
+        volumeLabelValue.text = String(format: "%.2f", volumeSliderValue.value)
         
         randomButtenText.setTitle("隨機產生", for: .normal)
         randomButtenText.titleLabel?.font = UIFont.systemFont(ofSize: 14)
@@ -89,12 +90,29 @@ class ViewController: UIViewController {
         
         //按下按鈕收鍵盤 (使用於按鈕Function內)
         view.endEditing(true)
+        
+        speedSliderValue.value = Float.random(in: 0...1)
+        pitchMultiplierSliderValue.value = Float.random(in: 0...1)
+        volumeSliderValue.value = Float.random(in: 0...1)
+        
+        speedLabelValue.text = String(format: "%.2f", speedSliderValue.value)
+        pitchMultiplierLabelValue.text = String(format: "%.2f", pitchMultiplierSliderValue.value)
+        volumeLabelValue.text = String(format: "%.2f", volumeSliderValue.value)
+        
     }
     
     @IBAction func speakButten(_ sender: UIButton) {
         
         //按下按鈕收鍵盤 (使用於按鈕Function內)
         view.endEditing(true)
+        
+        let arabicSpeechUtterance = AVSpeechUtterance(string: inputField.text!)
+        let arbicSpeechSynthesizer = AVSpeechSynthesizer()
+        
+        arabicSpeechUtterance.voice = AVSpeechSynthesisVoice(language: "zh=TW")
+        arbicSpeechSynthesizer.speak(arabicSpeechUtterance)
+        
+        
     }
 }
 
