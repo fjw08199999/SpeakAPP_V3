@@ -109,7 +109,13 @@ class ViewController: UIViewController {
         let arabicSpeechUtterance = AVSpeechUtterance(string: inputField.text!)
         let arbicSpeechSynthesizer = AVSpeechSynthesizer()
         
-        arabicSpeechUtterance.voice = AVSpeechSynthesisVoice(language: "zh=TW")
+        if setLangungeSegmented.selectedSegmentIndex == 0 {
+            arabicSpeechUtterance.voice = AVSpeechSynthesisVoice(language: "zh=TW")
+        } else {
+                arabicSpeechUtterance.voice = AVSpeechSynthesisVoice(language: "en")
+        
+        }
+
         arabicSpeechUtterance.rate = speedSliderValue.value
         arabicSpeechUtterance.pitchMultiplier = pitchMultiplierSliderValue.value
         arabicSpeechUtterance.volume = volumeSliderValue.value
