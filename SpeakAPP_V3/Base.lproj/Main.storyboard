@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hP3-jk-lrb">
-                                <rect key="frame" x="142" y="74" width="131" height="32"/>
+                                <rect key="frame" x="100" y="74" width="214" height="32"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
@@ -30,12 +30,21 @@
                             </textField>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="420-Nl-xeB">
                                 <rect key="frame" x="72" y="189" width="270" height="31"/>
+                                <connections>
+                                    <action selector="speedSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="xIq-hz-pmC"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5Vc-v2-hwB">
                                 <rect key="frame" x="72" y="249" width="270" height="31"/>
+                                <connections>
+                                    <action selector="pitchMultiplierSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="qBx-By-aGe"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mQk-F1-XJv">
                                 <rect key="frame" x="72" y="309" width="270" height="31"/>
+                                <connections>
+                                    <action selector="volumeSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="1Fu-Xs-LV3"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRl-Tb-Jv0">
                                 <rect key="frame" x="70" y="349" width="274" height="30"/>
@@ -113,7 +122,7 @@
                             <constraint firstItem="420-Nl-xeB" firstAttribute="leading" secondItem="TqB-Fi-gjQ" secondAttribute="trailing" constant="12" id="f0K-xl-wf1"/>
                             <constraint firstItem="WaL-tA-6nQ" firstAttribute="top" secondItem="ZRl-Tb-Jv0" secondAttribute="bottom" constant="10" id="hFM-Hq-ceh"/>
                             <constraint firstItem="Hpv-58-jqf" firstAttribute="leading" secondItem="5Vc-v2-hwB" secondAttribute="trailing" constant="12" id="hjz-hX-K35"/>
-                            <constraint firstItem="hP3-jk-lrb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="142" id="hlR-ac-XFG"/>
+                            <constraint firstItem="hP3-jk-lrb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="hlR-ac-XFG"/>
                             <constraint firstItem="je4-51-awb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ifV-pj-j46"/>
                             <constraint firstItem="Ivv-Kq-FxW" firstAttribute="top" secondItem="hP3-jk-lrb" secondAttribute="bottom" constant="20" id="ipB-9J-EOY"/>
                             <constraint firstItem="je4-51-awb" firstAttribute="top" secondItem="f9t-ga-u40" secondAttribute="bottom" constant="39" id="kJj-V0-ZL3"/>
@@ -123,7 +132,7 @@
                             <constraint firstItem="ZRl-Tb-Jv0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="nNt-tH-ekF"/>
                             <constraint firstItem="mQk-F1-XJv" firstAttribute="leading" secondItem="je4-51-awb" secondAttribute="trailing" constant="12" id="qLd-i8-2KQ"/>
                             <constraint firstItem="Hpv-58-jqf" firstAttribute="top" secondItem="wLd-Qq-ifV" secondAttribute="bottom" constant="39" id="qiW-Sg-oko"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hP3-jk-lrb" secondAttribute="trailing" constant="141" id="yVQ-g8-5fh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hP3-jk-lrb" secondAttribute="trailing" constant="100" id="yVQ-g8-5fh"/>
                         </constraints>
                     </view>
                     <connections>

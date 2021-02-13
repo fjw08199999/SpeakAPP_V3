@@ -26,15 +26,75 @@ class ViewController: UIViewController {
     @IBOutlet weak var randomButtenText: UIButton!
     @IBOutlet weak var speakButtenText: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    //點擊空白處收鍵盤
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    self.view.endEditing(true)
     }
-
-    @IBAction func randomButten(_ sender: Any) {
+    //輸入完點擊return收鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true
     }
     
-    @IBAction func speakButten(_ sender: Any) {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setLangungeSegmented.setTitle("說出中文", forSegmentAt: 0)
+        setLangungeSegmented.setTitle("Speak English", forSegmentAt: 1)
+        
+        // 預設反灰文字
+        inputField.placeholder = "請輸入文字"
+        // 鍵盤上的return變成done
+        inputField.returnKeyType = .done
+        // 圓角
+        inputField.borderStyle = .roundedRect
+        // 輸入框內 右邊顯示X 可以清除文字
+        inputField.clearButtonMode = .whileEditing
+        // UITextField的背景顏色
+        inputField.backgroundColor = UIColor.lightText
+        
+        speedLabel.text = "速度"
+        pitchMultiplierLabel.text = "語調"
+        volumeLabel.text = "音量"
+        
+        speedLabelValue.text = "\(speedSliderValue.value)"
+        pitchMultiplierLabelValue.text = "\(pitchMultiplierSliderValue.value)"
+        volumeLabelValue.text = "\(volumeSliderValue.value)"
+        
+        randomButtenText.setTitle("隨機產生", for: .normal)
+        randomButtenText.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        speakButtenText.setTitle("👄", for: .normal)
+        speakButtenText.titleLabel?.font = UIFont.systemFont(ofSize: 100)
+        
+    }
+    
+    
+    @IBAction func speedSlider(_ sender: UISlider) {
+        let speedNumber = String(format: "%.2f", sender.value)
+        speedLabelValue.text = speedNumber
+    }
+    
+    @IBAction func pitchMultiplierSlider(_ sender: UISlider) {
+        let pitchMultiplierNumber = String(format: "%.2f", sender.value)
+        pitchMultiplierLabelValue.text = pitchMultiplierNumber
+    }
+    
+    @IBAction func volumeSlider(_ sender: UISlider) {
+        let volumeNumber = String(format: "%.2f", sender.value)
+        volumeLabelValue.text = volumeNumber
+    }
+    
+    @IBAction func randomButten(_ sender: UIButton) {
+        
+        //按下按鈕收鍵盤 (使用於按鈕Function內)
+        view.endEditing(true)
+    }
+    
+    @IBAction func speakButten(_ sender: UIButton) {
+        
+        //按下按鈕收鍵盤 (使用於按鈕Function內)
+        view.endEditing(true)
     }
 }
 
